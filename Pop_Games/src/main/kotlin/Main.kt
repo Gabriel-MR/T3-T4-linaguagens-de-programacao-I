@@ -3,7 +3,7 @@ import java.sql.DriverManager
 
 fun main(args: Array<String>) {
     // Conexão com o banco
-    val connection = DriverManager.getConnection("jdbc:mariadb://192.168.56.101:3306/Pop_Games?user=admin&password=admin")
+    val connection = DriverManager.getConnection(shared.SharedPaths.STRING_CONEXAO_JDBC)
     // Caminho para realizar queries
     val sqlStatement = connection.createStatement()
     // Executa a query
@@ -17,6 +17,8 @@ fun main(args: Array<String>) {
         )
         println("Produto Encontrado: ${usuario}")
     }
+    val usuarioDAO = dao.UsuarioDAO().pegarUm("teste")
+    println(usuarioDAO)
     resultSet.close()
     connection.close()
 }

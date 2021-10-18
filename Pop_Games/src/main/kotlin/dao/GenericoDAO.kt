@@ -1,7 +1,7 @@
 package dao
 
 interface GenericoDAO {
-    fun pegarUm(id:Int): Any
+    fun pegarUm(login:String): Any
     fun pegarTodos(): List<Any>
     fun inserirUm(objeto:Any): Unit
     fun inserirVarios(lista:List<Any>): Unit
