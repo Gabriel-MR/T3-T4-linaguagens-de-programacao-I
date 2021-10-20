@@ -1,24 +1,9 @@
 import models.Usuario
-import java.sql.DriverManager
 
 fun main(args: Array<String>) {
-    // Conexão com o banco
-    val connection = DriverManager.getConnection(shared.SharedPaths.STRING_CONEXAO_JDBC)
-    // Caminho para realizar queries
-    val sqlStatement = connection.createStatement()
-    // Executa a query
-    val resultSet = sqlStatement.executeQuery("SELECT * FROM Pop_Games.Usuario;")
-    // Intera pelos resultados obtidos
-    while (resultSet.next()){
-        val usuario = Usuario(
-            resultSet.getString("login"),
-            resultSet.getString("senha"),
-            resultSet.getString("email")
-        )
-        println("Produto Encontrado: ${usuario}")
-    }
-    val usuarioDAO = dao.UsuarioDAO().pegarUm("teste")
-    println(usuarioDAO)
-    resultSet.close()
-    connection.close()
+    val usuarioDAO = dao.UsuarioDAO()
+    //println(usuarioDAO.pegarUm("teste2"))
+    //usuarioDAO.inserirUm(Usuario("teste3", "teste3", "teste3@gmail.com"))
+    //usuarioDAO.atualizar(Usuario("teste3", "123", "teste3@gmail.com"))
+    //usuarioDAO.deletar("teste3")
 }
