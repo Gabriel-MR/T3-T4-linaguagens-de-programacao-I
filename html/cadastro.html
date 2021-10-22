@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta charset="utf-8"/> 
+		<title>Cadastro</title>		
+	</head>
+	<body>
+
+		<form name="cadastro" id="cadastro" method="" action="">
+
+
+		Nome: <input type="text" name="nome" id="nome" size="35" placeholder=" Digite o seu nome" class="formato" required> 
+		<br/> <br/>
+
+		Nickname: <input type="text" name="nick" id="nick" size="35" placeholder=" Digite o seu nickname" class="formato" required> 
+		<br/> <br/>
+
+
+		E-mail: <input type="mail" name="email" id="email" size="35" placeholder=" Digite seu e-mail " class="formato" required> 
+		<br/> <br/>
+
+
+		Senha: <input type="password" name="senha1" id="senha1" placeholder=" Digite sua senha" size="20" class="formato" required> 
+		<br/> <br/>
+
+
+		Confirme sua senha: <input type="password" name="senha2" id="senha2" placeholder=" Confirme sua senha" size="20" class="formato" required oninput="validaSenha(this)"> <br/> <br/>
+
+
+		<input type="submit" name="enviar" id="enviar" value="Cadastrar" class="formato">
+		<input type="reset" name="redefinir" id="redefinir" value="Redefinir" class="formato">
+		</form>	
+	</body>
+</html>
+
+	<script>
+		function validaSenha (input){ 
+		if (input.value != document.getElementById('senha1').value) {
+    	input.setCustomValidity('AS SENHAS DIFERENTES OU INCORRETAS');
+  		} else {
+    	input.setCustomValidity('');
+  		}
+		}	 
+	</script>

@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta charset="utf-8"/> 
+<title>Login</title>
+</head>
+<body> 
+
+
+<script >
+
+	function acessar(){
+		var nome=document.cadastro.identificar.value
+		var senha=document.cadastro.secreto.value
+		if(nome==cadastro.this.nome && senha==cadastro.this.senha){
+			window.open("index.html","_self")
+		}
+		else{
+			alert('e-mail e/ou senha incorretos')
+		}
+	}
+
+</script>
+
+Login
+<br>
+<br>
+
+<form name="cadastro">
+
+<div align="center">E-mail: 
+	<input type="text" name="identificar">
+    <br>
+
+<div align="center">Senha: 
+	<input type="password" name="secreto">
+	<br>
+
+<input type="button" value="Acessar" onClick="acessar()">
+  </div>
+
+</form>
+</body>
+</html>
