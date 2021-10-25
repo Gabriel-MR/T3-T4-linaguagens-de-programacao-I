@@ -3,7 +3,7 @@ package dao
 import models.Usuario
 
 class UsuarioDAO:GenericoDAO {
-    override fun pegarUm(login: String): Any {
+    override fun pegarUm(login: String): Usuario {
         val connection = ConnectionDAO()
         val resultSet = connection.executeQuery("""SELECT * FROM Pop_Games.Usuario WHERE login = '${login}';""")
         var usuario : Usuario? = null
