@@ -2,6 +2,7 @@ package dao
 
 import models.Review
 import models.Usuario
+import java.sql.Date
 
 class ReviewDAO:GenericoDAO {
     override fun pegarUm(login: String): Review {
@@ -12,7 +13,7 @@ class ReviewDAO:GenericoDAO {
             review = Review(
                 resultSet.getInt("idReview"),
                 resultSet.getString("review"),
-                resultSet.getString("curtidas"),
+                resultSet.getInt("curtidas"),
                 resultSet.getDate("data"),
                 resultSet.getInt("idElemento"),
                 resultSet.getString("login")
@@ -30,13 +31,15 @@ class ReviewDAO:GenericoDAO {
     override fun inserirUm(objeto: Any) {
         val connection = ConnectionDAO()
         val preparedStatement = connection.getPreparedStatement("""
-            INSERT INTO Pop_Games.Usuario 
-            values (?, ?, ?);
+            INSERT INTO Pop_Games.Review 
+            values (?, ?, ?, ?, ?);
             """.trimMargin())
-        val novo_usuario = objeto as Usuario
-        preparedStatement?.setString(1, novo_usuario.login)
-        preparedStatement?.setString(2, novo_usuario.senha)
-        preparedStatement?.setString(3, novo_usuario.email)
+        val novo_review = objeto as Review
+        preparedStatement?.setString(1, novo_review.review)
+        preparedStatement?.setInt(2, novo_review.curtidas)
+        preparedStatement?.setDate(3, novo_review.data as Date?)
+        preparedStatement?.setInt(4, novo_review.idElemento)
+        preparedStatement?.setString(5, novo_review.login)
         preparedStatement?.executeUpdate()
         connection.commit()
         connection.close()
@@ -49,13 +52,15 @@ class ReviewDAO:GenericoDAO {
     override fun atualizar(objeto: Any) {
         val connection = ConnectionDAO()
         val preparedStatement = connection.getPreparedStatement("""
-            UPDATE Pop_Games.Usuario 
-            SET senha = ?
-            WHERE login = ?;
+            UPDATE Pop_Games.Review 
+            SET review = ?
+            WHERE login = ?
+            AND idReview = ?;
             """.trimMargin())
-        val novo_usuario = objeto as Usuario
-        preparedStatement?.setString(1, novo_usuario.senha)
-        preparedStatement?.setString(2, novo_usuario.login)
+        val novo_review = objeto as Review
+        preparedStatement?.setString(1, novo_review.review)
+        preparedStatement?.setString(2, novo_review.login)
+        preparedStatement?.setInt(3, novo_review.idReview)
         preparedStatement?.executeUpdate()
         connection.commit()
         connection.close()
@@ -64,7 +69,7 @@ class ReviewDAO:GenericoDAO {
     override fun deletar(login: String) {
         val connection = ConnectionDAO()
         val preparedStatement = connection.getPreparedStatement("""
-            DELETE FROM Pop_Games.Usuario
+            DELETE FROM Pop_Games.Review
             WHERE login = ?;
             """.trimMargin())
         preparedStatement?.setString(1, login)
