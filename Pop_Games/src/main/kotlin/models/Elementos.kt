@@ -1,7 +1,7 @@
 package models
 
 data class Elementos(
-    val idElemento: Int,
+    val id: Int,
     val categoria: String,
     val descricao: String,
     val nome: String,
