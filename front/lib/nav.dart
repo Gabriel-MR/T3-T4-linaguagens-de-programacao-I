@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pop_games/login.dart';
 import 'package:pop_games/register.dart';
+import 'escrever_review.dart';
+
 
 class NavBar extends StatefulWidget {
   @override
@@ -26,9 +28,9 @@ class _State extends State<NavBar> {
           ),
           body: TabBarView(
             children: [
-             //LerReview(),
-             //EscreverReview(),
-             //UserPage()
+             LoginPage(),
+             EscreverReview(),
+             RegisterPage()
             ],
           ),
         ),
