@@ -6,22 +6,7 @@ import java.sql.Date
 
 class ReviewDAO:GenericoDAO {
     override fun pegarUm(login: String): Review {
-        val connection = ConnectionDAO()
-        val resultSet = connection.executeQuery("""SELECT * FROM Pop_Games.Review WHERE login = '${login}';""")
-        var review : Review? = null
-        while (resultSet?.next()!!) {
-            review = Review(
-                resultSet.getInt("idReview"),
-                resultSet.getString("review"),
-                resultSet.getInt("curtidas"),
-                resultSet.getDate("data"),
-                resultSet.getInt("idElemento"),
-                resultSet.getString("login")
-            )
-        }
-        resultSet.close()
-        connection.close()
-        return review!!
+        TODO("Not yet implemented")
     }
 
     override fun pegarTodos(): List<Any> {
@@ -66,13 +51,13 @@ class ReviewDAO:GenericoDAO {
         connection.close()
     }
 
-    override fun deletar(login: String) {
+    override fun deletar(nome: String) {
         val connection = ConnectionDAO()
         val preparedStatement = connection.getPreparedStatement("""
             DELETE FROM Pop_Games.Review
-            WHERE login = ?;
+            WHERE nome = ?;
             """.trimMargin())
-        preparedStatement?.setString(1, login)
+        preparedStatement?.setString(1, nome)
         preparedStatement?.executeUpdate()
         connection.commit()
         connection.close()

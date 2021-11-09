@@ -1,7 +1,6 @@
 package dao
 
 import models.Elementos
-import models.Usuario
 
 class ElementoDAO:GenericoDAO {
     override fun pegarUm(nome: String): Elementos {

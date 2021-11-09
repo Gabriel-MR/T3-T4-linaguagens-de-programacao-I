@@ -4,18 +4,24 @@ import models.Usuario
 import java.util.*
 
 fun main(args: Array<String>) {
-    //val usuarioDAO = dao.UsuarioDAO()
-    //val usuario = usuarioDAO.pegarUm("teste2")
-    //val reviewDAO = dao.ReviewDAO()
-    //val review = reviewDAO.pegarUm("teste")
+    /*
+    /// Funções para tabela Usuario
+    val usuarioDAO = dao.UsuarioDAO()
+    usuarioDAO.inserirUm(Usuario("teste", "teste", "teste@gmail.com"))
+    val peg = usuarioDAO.pegarUm("teste")
+    usuarioDAO.atualizar(Usuario("teste", "12345", "teste@gmail.com"))
+    usuarioDAO.deletar("teste")
+    */
+
+    /*
+    /// Funções para tabela Elemento
     val elementoDAO = dao.ElementoDAO()
-    //elementoDAO.inserirUm(Elementos(0,"b", "b", "b", "b"))
-    val elemento = elementoDAO.pegarUm("b")
-    println(elemento.categoria)
-    //reviewDAO.atualizar(Review(0, "muito legal!", 0, Date(2021,10,31), 5, "teste"))
-    //println(review.review)
-    //println(usuario.login)
-    //usuarioDAO.inserirUm(Usuario("teste3", "teste3", "teste3@gmail.com"))
-    //usuarioDAO.atualizar(Usuario("teste3", "123", "teste3@gmail.com"))
-    //usuarioDAO.deletar("teste3")
+    val peg = elementoDAO.pegarUm("007")
+    elementoDAO.inserirUm(Elementos(0, "comédia", "legal", "Simpsons", "Simpsons.com.br"))
+    elementoDAO.deletar("007")
+    */
+
+    /// Funções para tabela Review
+    val reviewDAO = dao.ReviewDAO()
+
 }
