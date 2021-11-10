@@ -38,7 +38,7 @@ class ElementoDAO:GenericoDAO {
         connection.close()
     }
 
-    override fun pegarTodos(): List<Any> {
+    override fun pegarTodos(nome: String): List<Any> {
         TODO("Not yet implemented")
     }
 

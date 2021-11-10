@@ -9,8 +9,32 @@ class ReviewDAO:GenericoDAO {
         TODO("Not yet implemented")
     }
 
-    override fun pegarTodos(): List<Any> {
-        TODO("Not yet implemented")
+    override fun pegarTodos(nome: String): List<Any> {
+        val reviews = mutableListOf<Review>()
+        try {
+            val connection = ConnectionDAO()
+            val id_ele = connection.executeQuery("""SELECT ID FROM Pop_Games.Elementos where nome = '${nome}""")
+            val resultSet = connection.executeQuery("""SELECT * FROM Pop_Games.Review where idElemento = ${id_ele}""")
+            while(resultSet?.next()!!){
+                reviews.add(
+                    Review(
+                        resultSet.getInt("idReview"),
+                        resultSet.getString("review"),
+                        resultSet.getInt("curtidas"),
+                        resultSet.getDate("data"),
+                        resultSet.getInt("idElemento"),
+                        resultSet.getString("login")
+                    )
+                )
+            }
+            connection.close()
+        }
+
+        catch (exception:Exception){
+            exception.printStackTrace()
+        }
+
+        return reviews
     }
 
     override fun inserirUm(objeto: Any) {

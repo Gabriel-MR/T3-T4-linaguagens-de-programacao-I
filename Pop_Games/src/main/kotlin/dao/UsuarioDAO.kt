@@ -19,10 +19,6 @@ class UsuarioDAO:GenericoDAO {
         return usuario!!
     }
 
-    override fun pegarTodos(): List<Any> {
-        TODO("Not yet implemented")
-    }
-
     override fun inserirUm(objeto: Any) {
         val connection = ConnectionDAO()
         val preparedStatement = connection.getPreparedStatement("""
@@ -36,6 +32,10 @@ class UsuarioDAO:GenericoDAO {
         preparedStatement?.executeUpdate()
         connection.commit()
         connection.close()
+    }
+
+    override fun pegarTodos(nome: String): List<Any> {
+        TODO("Not yet implemented")
     }
 
     override fun inserirVarios(lista: List<Any>) {
