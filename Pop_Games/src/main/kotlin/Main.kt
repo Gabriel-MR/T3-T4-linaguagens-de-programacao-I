@@ -1,5 +1,10 @@
 import models.Review
 import java.sql.Date
+import io.ktor.application.*
+import io.ktor.response.*
+import io.ktor.routing.*
+import io.ktor.server.engine.*
+import io.ktor.server.netty.*
 
 fun main(args: Array<String>) {
     /*
@@ -22,7 +27,13 @@ fun main(args: Array<String>) {
     /*
     /// Funções para tabela Review
     val reviewDAO = dao.ReviewDAO()
-    //reviewDAO.inserirUm(Review(6, "maneiro",  Date(2021,11,10), "user", 3, 2))
-    println(reviewDAO.pegarTodos("Simpsons"))
     */
+
+    embeddedServer(Netty, port = 8080) {
+        routing {
+            get("/") {
+                call.respondText("Hello, world!")
+            }
+        }
+    }.start(wait = true)
 }
