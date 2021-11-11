@@ -9,7 +9,7 @@ class ElementoDAO:GenericoDAO {
         var elemento : Elementos? = null
         while (resultSet?.next()!!) {
             elemento = Elementos(
-                resultSet.getInt("idElemento"),
+                resultSet.getInt("id"),
                 resultSet.getString("categoria"),
                 resultSet.getString("descricao"),
                 resultSet.getString("nome"),

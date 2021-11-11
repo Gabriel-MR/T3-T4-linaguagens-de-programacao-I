@@ -1,7 +1,5 @@
-import models.Elementos
 import models.Review
-import models.Usuario
-import java.util.*
+import java.sql.Date
 
 fun main(args: Array<String>) {
     /*
@@ -21,7 +19,10 @@ fun main(args: Array<String>) {
     elementoDAO.deletar("007")
     */
 
+    /*
     /// Funções para tabela Review
     val reviewDAO = dao.ReviewDAO()
-
+    //reviewDAO.inserirUm(Review(6, "maneiro",  Date(2021,11,10), "user", 3, 2))
+    println(reviewDAO.pegarTodos("Simpsons"))
+    */
 }

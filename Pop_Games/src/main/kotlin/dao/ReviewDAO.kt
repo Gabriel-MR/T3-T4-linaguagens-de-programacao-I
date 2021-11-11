@@ -1,7 +1,6 @@
 package dao
 
 import models.Review
-import models.Usuario
 import java.sql.Date
 
 class ReviewDAO:GenericoDAO {
@@ -13,17 +12,16 @@ class ReviewDAO:GenericoDAO {
         val reviews = mutableListOf<Review>()
         try {
             val connection = ConnectionDAO()
-            val id_ele = connection.executeQuery("""SELECT ID FROM Pop_Games.Elementos where nome = '${nome}""")
-            val resultSet = connection.executeQuery("""SELECT * FROM Pop_Games.Review where idElemento = ${id_ele}""")
+            val elementoDAO = dao.ElementoDAO()
+            val resultSet = connection.executeQuery("""SELECT * FROM Pop_Games.Review WHERE idElemento = ${elementoDAO.pegarUm(nome).id}""")
             while(resultSet?.next()!!){
                 reviews.add(
                     Review(
-                        resultSet.getInt("idReview"),
+                        resultSet.getInt("id"),
                         resultSet.getString("review"),
-                        resultSet.getInt("curtidas"),
                         resultSet.getDate("data"),
-                        resultSet.getInt("idElemento"),
-                        resultSet.getString("login")
+                        resultSet.getString("login"),
+                        resultSet.getInt("idElemento")
                     )
                 )
             }
@@ -44,11 +42,11 @@ class ReviewDAO:GenericoDAO {
             values (?, ?, ?, ?, ?);
             """.trimMargin())
         val novo_review = objeto as Review
-        preparedStatement?.setString(1, novo_review.review)
-        preparedStatement?.setInt(2, novo_review.curtidas)
+        preparedStatement?.setInt(1, novo_review.id)
+        preparedStatement?.setString(2, novo_review.review)
         preparedStatement?.setDate(3, novo_review.data as Date?)
-        preparedStatement?.setInt(4, novo_review.idElemento)
-        preparedStatement?.setString(5, novo_review.login)
+        preparedStatement?.setString(4, novo_review.login)
+        preparedStatement?.setInt(5, novo_review.idElemento)
         preparedStatement?.executeUpdate()
         connection.commit()
         connection.close()
@@ -69,19 +67,26 @@ class ReviewDAO:GenericoDAO {
         val novo_review = objeto as Review
         preparedStatement?.setString(1, novo_review.review)
         preparedStatement?.setString(2, novo_review.login)
-        preparedStatement?.setInt(3, novo_review.idReview)
+        preparedStatement?.setInt(3, novo_review.id)
         preparedStatement?.executeUpdate()
         connection.commit()
         connection.close()
     }
 
-    override fun deletar(nome: String) {
+    override fun deletar(login: String) {
+        TODO("Not yet implemented")
+    }
+
+    fun deletar(objeto: Any) {
         val connection = ConnectionDAO()
         val preparedStatement = connection.getPreparedStatement("""
             DELETE FROM Pop_Games.Review
-            WHERE nome = ?;
+            WHERE review = ? AND data = ? AND id = ?;
             """.trimMargin())
-        preparedStatement?.setString(1, nome)
+        val deletar = objeto as Review
+        preparedStatement?.setString(1, deletar.review)
+        preparedStatement?.setDate(2, deletar.data)
+        preparedStatement?.setInt(3, deletar.id)
         preparedStatement?.executeUpdate()
         connection.commit()
         connection.close()

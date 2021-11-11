@@ -1,12 +1,12 @@
 package models
 
+import java.sql.Date
 import java.util.*
 
 data class Review(
-    val idReview: Int,
+    val id: Int,
     val review: String,
-    val curtidas: Int,
     val data: Date,
-    val idElemento: Int,
-    val login: String
+    val login: String,
+    val idElemento: Int
 )
