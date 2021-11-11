@@ -1,6 +1,9 @@
 import models.Review
 import java.sql.Date
 import io.ktor.application.*
+import io.ktor.features.*
+import io.ktor.http.*
+import io.ktor.http.HttpMethod.Companion.Options
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
@@ -29,9 +32,13 @@ fun main(args: Array<String>) {
     val reviewDAO = dao.ReviewDAO()
     */
 
-    embeddedServer(Netty, port = 8080) {
+    embeddedServer(Netty, port = 8080, host = "localhost") {
+        install(CORS) {
+            method(HttpMethod.Options)
+            anyHost()
+        }
         routing {
-            get("/") {
+            get ("/") {
                 call.respondText("Hello, world!")
             }
         }
