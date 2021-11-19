@@ -6,8 +6,6 @@ class EscreverReview extends StatefulWidget {
 }
 
 class _State extends State<EscreverReview> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pop_games/ler_review.dart';
 import 'package:pop_games/login.dart';
 import 'package:pop_games/register.dart';
+import 'package:pop_games/user_page.dart';
 import 'escrever_review.dart';
 
 
@@ -28,9 +30,9 @@ class _State extends State<NavBar> {
           ),
           body: TabBarView(
             children: [
-             LoginPage(),
+             LerReview(),
              EscreverReview(),
-             RegisterPage()
+             UserPage()
             ],
           ),
         ),
