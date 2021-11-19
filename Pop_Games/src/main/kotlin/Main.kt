@@ -32,14 +32,16 @@ fun main(args: Array<String>) {
     val reviewDAO = dao.ReviewDAO()
     */
 
-    embeddedServer(Netty, port = 8080, host = "localhost") {
+    embeddedServer(Netty, port = 8080, host = "192.168.56.1") {
         install(CORS) {
             method(HttpMethod.Options)
             anyHost()
         }
         routing {
-            get ("/") {
-                call.respondText("Hello, world!")
+            get ("/login") {
+                val usuarioDAO = dao.UsuarioDAO()
+                println(usuarioDAO.pegarUm("teste").login)
+                call.respond(usuarioDAO.pegarUm("teste"))
             }
         }
     }.start(wait = true)
