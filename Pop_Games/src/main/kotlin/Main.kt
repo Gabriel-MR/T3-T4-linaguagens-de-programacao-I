@@ -11,6 +11,7 @@ import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.netty.handler.codec.json.JsonObjectDecoder
+import plugins.configureRouting
 
 fun main(args: Array<String>) {
     /*
@@ -42,13 +43,7 @@ fun main(args: Array<String>) {
         }
 
         routing {
-            get ("/") {
-                val usuarioDAO = UsuarioDAO()
-                var user = usuarioDAO.pegarUm("teste")
-                var gson = Gson()
-                var jsonString = gson.toJson(user)
-                call.respond(jsonString)
-            }
+            configureRouting()
         }
     }.start(wait = true)
 }
