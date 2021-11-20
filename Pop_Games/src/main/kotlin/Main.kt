@@ -1,3 +1,5 @@
+import com.google.gson.Gson
+import dao.UsuarioDAO
 import models.Review
 import java.sql.Date
 import io.ktor.application.*
@@ -8,6 +10,7 @@ import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.netty.handler.codec.json.JsonObjectDecoder
 
 fun main(args: Array<String>) {
     /*
@@ -34,14 +37,17 @@ fun main(args: Array<String>) {
 
     embeddedServer(Netty, port = 8080, host = "192.168.56.1") {
         install(CORS) {
-            method(HttpMethod.Options)
+            method(Options)
             anyHost()
         }
+
         routing {
-            get ("/login") {
-                val usuarioDAO = dao.UsuarioDAO()
-                println(usuarioDAO.pegarUm("teste").login)
-                call.respond(usuarioDAO.pegarUm("teste"))
+            get ("/") {
+                val usuarioDAO = UsuarioDAO()
+                var user = usuarioDAO.pegarUm("teste")
+                var gson = Gson()
+                var jsonString = gson.toJson(user)
+                call.respond(jsonString)
             }
         }
     }.start(wait = true)
