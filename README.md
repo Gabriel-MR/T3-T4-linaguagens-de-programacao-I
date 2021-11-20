@@ -2,6 +2,18 @@
 
 Projeto criado para ser um site onde um usuário pode fazer reviews sobre diversas categorias e título com um frontend em Flutter, um backend em Kotlin e a base de dados em MySQL
 
+
+## Tecnologias Utilizadas
+
+- GitHub (versionamento)
+- MariaDB (armazenar banco)
+- VirtualBox (utilizar MariaDB)
+- MySQL Workbench (banco de dados)
+- Visual Studio Code (front/flutter)
+- IntelliJ (back/kotlin)
+- Ktor (servidor)
+
+
 ## Banco de Dados
 ![image](https://user-images.githubusercontent.com/73725151/142737226-ef2973e6-2722-48da-8397-98c84616b561.png)
 
@@ -17,6 +29,12 @@ A tabela Elementos foi criada para armazenar os elementos que os usuários vão 
 A tabela Review foi criada para armazenar os reviews criados por esses usuários e é mais importante pois se liga as duas tabelas, para isso julgou-se necessários os campos review, sua data, o login de quem fez essa review e o id de qual elemento é esse review. Os últimos 2 vem respectivamente das tabelas Usuario e Elementos.
 
 ## Back-End
+
+O backend foi desenvolvido em Kotlin. Inicialmente foram criado os models de cada uma das tabelas, após isso um DAO genérico para que fosse possível padronizar tudo, um DAO de conexão e os DAO para cada tabela com suas respectivas quey
+
+
+## Servidor
+
 
 
 ## Front-End
