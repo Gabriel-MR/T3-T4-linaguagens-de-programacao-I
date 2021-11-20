@@ -10,13 +10,34 @@ import io.ktor.request.*
 
 fun Application.configureRouting() {
     routing {
-        get ("/login") {
-            val usuarioDAO = UsuarioDAO()
-            var user = usuarioDAO.pegarUm("teste")
+        get ("/") {
+            var gson = Gson()
+            var jsonString = gson.toJson()
+            call.respond(jsonString)
+        }
+
+        get ("/register") {
             var gson = Gson()
             var jsonString = gson.toJson(user)
             call.respond(jsonString)
         }
-        
+
+        get ("/userpage") {
+            var gson = Gson()
+            var jsonString = gson.toJson(user)
+            call.respond(jsonString)
+        }
+
+        get ("/lerreview") {
+            var gson = Gson()
+            var jsonString = gson.toJson(user)
+            call.respond(jsonString)
+        }
+
+        get ("/escreverreview") {
+            var gson = Gson()
+            var jsonString = gson.toJson(user)
+            call.respond(jsonString)
+        }
     }
 }
