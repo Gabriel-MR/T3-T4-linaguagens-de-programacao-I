@@ -11,11 +11,8 @@ import io.ktor.request.*
 fun Application.configureRouting() {
     routing {
         get ("/") {
-            var gson = Gson()
-            var jsonString = gson.toJson()
-            call.respond(jsonString)
         }
-
+        /*
         get ("/register") {
             var gson = Gson()
             var jsonString = gson.toJson(user)
@@ -39,5 +36,7 @@ fun Application.configureRouting() {
             var jsonString = gson.toJson(user)
             call.respond(jsonString)
         }
+        */
+
     }
 }
