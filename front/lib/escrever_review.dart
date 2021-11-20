@@ -21,7 +21,7 @@ class _State extends State<EscreverReview> {
               style: TextStyle(fontSize: 20),
               controller: nomeReview,
               decoration: new InputDecoration(
-                hintText: "Nome",
+                hintText: "Nome Elemento",
               ),
             ),
           ),

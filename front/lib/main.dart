@@ -8,7 +8,7 @@ import 'package:pop_games/user_page.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: NavBar(),
+    home: LoginPage(),
   ));
 }
 

@@ -67,7 +67,7 @@ class _State extends State<RegisterPage> {
                     child: RaisedButton(
                       textColor: Colors.white,
                       color: Colors.blue,
-                      child: Text('Criar'),
+                      child: Text('Criar Conta'),
                       onPressed: () {
                         print(nameController.text);
                         print(passwordController.text);

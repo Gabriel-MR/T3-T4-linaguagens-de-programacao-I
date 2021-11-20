@@ -19,19 +19,31 @@ class _State extends State<UserPage> {
             columns: const <DataColumn>[
               DataColumn(
                 label: Text(
-                  'Name',
+                  'id',
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
               DataColumn(
                 label: Text(
-                  'Age',
+                  'Review',
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
               DataColumn(
                 label: Text(
-                  'Role',
+                  'Data',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'User',
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              DataColumn(
+                label: Text(
+                  'Elemento',
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
@@ -39,23 +51,11 @@ class _State extends State<UserPage> {
             rows: const <DataRow>[
               DataRow(
                 cells: <DataCell>[
-                  DataCell(Text('Sarah')),
-                  DataCell(Text('19')),
-                  DataCell(Text('Student')),
-                ],
-              ),
-              DataRow(
-                cells: <DataCell>[
-                  DataCell(Text('Janine')),
-                  DataCell(Text('43')),
-                  DataCell(Text('Professor')),
-                ],
-              ),
-              DataRow(
-                cells: <DataCell>[
-                  DataCell(Text('William')),
-                  DataCell(Text('27')),
-                  DataCell(Text('Associate Professor')),
+                  DataCell(Text('id')),
+                  DataCell(Text('Review')),
+                  DataCell(Text('Data')),
+                  DataCell(Text('User')),
+                  DataCell(Text('Elemento'))
                 ],
               ),
             ],
@@ -66,7 +66,7 @@ class _State extends State<UserPage> {
               style: TextStyle(fontSize: 20),
               controller: acao,
               decoration: new InputDecoration(
-                hintText: "Nome",
+                hintText: "Ação (Editar/Apagar)",
               ),
             ),
           ),
@@ -76,7 +76,7 @@ class _State extends State<UserPage> {
               controller: id,
               style: TextStyle(fontSize: 20),
               decoration: new InputDecoration(
-                hintText: "Review",
+                hintText: "Novo Review",
               ),
             ),
           ),
@@ -86,7 +86,7 @@ class _State extends State<UserPage> {
               controller: novoReview,
               style: TextStyle(fontSize: 20),
               decoration: new InputDecoration(
-                hintText: "Review",
+                hintText: "id",
               ),
             ),
           ),
