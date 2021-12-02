@@ -1,16 +1,15 @@
 # Pop&Games
 
-Projeto criado para ser um site onde um usuário pode fazer reviews sobre diversas categorias e título com um frontend em Flutter, um backend em Kotlin e a base de dados em MySQL
-
+Projeto criado para ser um site onde um usuário pode fazer reviews sobre diversas categorias e títulos
 
 ## Tecnologias Utilizadas
 
-- GitHub (versionamento)
-- MariaDB (armazenar banco)
-- VirtualBox (utilizar MariaDB)
+- GitHub (versionamento e backup)
+- MariaDB (armazenar banco e poder acessar de qualquer lugar a qualquer momento)
+- VirtualBox (utilizar MariaDB em uma VM)
 - MySQL Workbench (banco de dados)
-- Visual Studio Code (front/flutter)
-- IntelliJ (back/kotlin)
+- Visual Studio Code (front-end/flutter)
+- IntelliJ (back-end/kotlin)
 - Ktor (servidor)
 
 
@@ -30,8 +29,18 @@ A tabela Review foi criada para armazenar os reviews criados por esses usuários
 
 ## Back-End
 
-O backend foi desenvolvido em Kotlin. Inicialmente foram criado os models de cada uma das tabelas, após isso um DAO genérico para que fosse possível padronizar tudo, um DAO de conexão e os DAO para cada tabela com suas respectivas quey
+O backend foi desenvolvido em Kotlin. Inicialmente foram criado os models de cada uma das tabelas a partir das tabelas do MySQL usando os mesmos campos e mesmos tipos, após isso um DAO genérico, para que fosse possível padronizar tudo, um DAO de conexão e os DAO para cada tabela com suas respectivas quey
 
+'''
+interface GenericoDAO {
+    fun pegarUm(login:String): Any
+    fun inserirUm(objeto:Any): Unit
+    fun pegarTodos(nome: String): List<Any>
+    fun inserirVarios(lista:List<Any>): Unit
+    fun atualizar(objeto: Any): Unit
+    fun deletar(login: String): Unit
+}
+'''
 
 ## Servidor
 
