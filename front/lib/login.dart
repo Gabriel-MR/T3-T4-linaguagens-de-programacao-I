@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:pop_games/register.dart';
 import 'package:http/http.dart' as http;
 
@@ -57,9 +61,19 @@ class _State extends State<LoginPage> {
                       textColor: Colors.white,
                       color: Colors.blue,
                       child: Text('Entrar'),
-                      onPressed: () {
+                      onPressed: () async{
                         print(nameController.text);
                         print(passwordController.text);
+                        Map<String, String> body = {
+                          'login': nameController.text,
+                          'senha': passwordController.text,
+                        };
+                        Response r = await post(
+                          Uri.parse("http://192.168.56.1:8080"),
+                          headers: {"Content-Type": "application/json"},
+                          body: body,
+                        );
+                        print("");
                       },
                     )),
                 Container(
