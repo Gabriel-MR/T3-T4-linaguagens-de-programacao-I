@@ -36,7 +36,7 @@ fun main(args: Array<String>) {
     val reviewDAO = dao.ReviewDAO()
     */
 
-    embeddedServer(Netty, port = 8080, host = "192.168.56.1") {
+    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
         install(CORS) {
             method(Options)
             anyHost()
