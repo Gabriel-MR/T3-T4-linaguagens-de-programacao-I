@@ -23,20 +23,20 @@ Projeto criado para ser um site onde um usuário pode fazer reviews sobre divers
 ## Banco de Dados
 ![image](https://user-images.githubusercontent.com/73725151/142737226-ef2973e6-2722-48da-8397-98c84616b561.png)
 
-Para o projeto o grupo julgou necessário a criação de apenas 3 tabelas. Sendo elas:
+Para o projeto, o grupo julgou necessário a criação de apenas 3 tabelas. Sendo elas:
 
 ###### Usuario
-A tabela Usuario consiste em aramzenar a informação dos usuários para fazer verificações de login, registros e posts. As informações necessárias são apenas o login, a senha e o email para manter esse controle
+A tabela Usuario consiste em armazenar a informação dos usuários para fazer verificações de login, registros e posts. As informações necessárias são apenas o login, a senha e o email para manter esse controle.
 
 ###### Elementos
-A tabela Elementos foi criada para armazenar os elementos que os usuários vão fazer reviews, para isso julgou-se necessário apenas neccesário a descrição do elemento, o nome do elemento e a categoria do elemento.
+A tabela Elementos foi criada para armazenar os elementos que os usuários vão fazer reviews, para isso julgou-se necessário apenas a descrição do elemento, o nome do elemento e a categoria do elemento.
 
 ###### Review
-A tabela Review foi criada para armazenar os reviews criados por esses usuários e é mais importante pois se liga as duas tabelas, para isso julgou-se necessários os campos review, sua data, o login de quem fez essa review e o id de qual elemento é esse review. Os últimos 2 vem respectivamente das tabelas Usuario e Elementos.
+A tabela Review foi criada para armazenar os reviews criados por esses usuários e e-mails importantes, pois se liga as duas tabelas. Para isso julgou-se necessários os campos review, sua data, o login de quem fez essa review e o id de qual elemento é esse review. Os últimos 2 vem respectivamente das tabelas Usuario e Elementos.
 
 ## Back-End
 
-O backend foi desenvolvido em Kotlin. Inicialmente foram criado os models de cada uma das tabelas a partir das tabelas do MySQL usando os mesmos campos e mesmos tipos, após isso um DAO genérico, para que fosse possível padronizar tudo, um DAO de conexão e os DAO para cada tabela com suas respectivas quey
+O backend foi desenvolvido em Kotlin. Inicialmente foram criado os models de cada uma das tabelas a partir das tabelas do MySQL usando os mesmos campos e mesmos tipos, após isso um DAO genérico, para que fosse possível padronizar tudo, um DAO de conexão e os DAO para cada tabela com suas respectivas query's.
 
 ```
 interface GenericoDAO {
@@ -56,9 +56,9 @@ interface GenericoDAO {
 - A função atualizar serve para atualizar linhas das tabelas
 - A função deletar serve para apagar linhas das tabelas
 
-OBS: Para cada tabela a implementação do método varia, portanto, para mais detalhes obre o que foi feito e como foi implementado cada uma dessas funções em cada uma das tabelas basta acessar o package dao e olhar qualquer um dos arquivos
+OBS: Para cada tabela, a implementação do método varia, portanto, para mais detalhes sobre o que foi feito e como foi implementado cada uma dessas funções em cada uma das tabelas, basta acessar o package dao e olhar qualquer um dos arquivos.
 
-Uma vez que as conexões são no mesmo banco não havia necessidade de ficar repetido a conexão com o banco, para isso ciou-se o arquivo a seguir que padroniza para todos:
+Uma vez que as conexões são no mesmo banco, não havia necessidade de ficar repetido a conexão com o banco. Para isso, criou-se o arquivo a seguir que padroniza para todos:
 ```
 package dao
 
@@ -135,40 +135,40 @@ Dentro do configureRouting() que está loclizado no package plugins foram defini
 "/lerreview" - ler alguma review específica baseada nos filtros
 "/escreverreview" -> escrever alguma review
 
-Para a transmissãod e menssagem via API usou-se o JSON.
+Para a transmissão de menssagem via API, usou-se o JSON.
 
 ## Front-End
 
-O grupo decidiu usar criar o front-end em flutter por ser mais intuitivo e para aprender uma nova ferramenta, atráves de documentação, tutoriais e aulas, julgou-se necessária a criação de 5 telas em Flutter, sendo elas:
+O grupo decidiu criar o front-end em flutter por ser mais intuitivo e para aprender uma nova ferramenta, atráves de documentação, tutoriais e aulas. Julgou-se necessária a criação de 5 telas em Flutter, sendo elas:
 
 ###### Login
 
 ![image](https://user-images.githubusercontent.com/73725151/142737654-71eb25be-b92f-4ac0-b1ad-5010c053160d.png)
 
-Aqui o usuário pode fazer login no site e caso não tenha conta clicar no botão "Criar Conta" onde será redirecionado a próxima páginas que é a de registro.
+Aqui o usuário pode fazer login no site e caso não tenha conta, clicar no botão "Criar Conta" onde será redirecionado para a próxima página que é a de registro.
 
 ###### Criar uma Conta
 
 ![image](https://user-images.githubusercontent.com/73725151/142737992-c55b924a-bc05-44eb-a931-c00c1922f494.png)
 
-Aqui o usuário pode se resgistrar no site caso não tenha uma conta, se as senhas não baterem o site não deixa criar a conta e assim que cria-se a conta o visitante é redirecionado de volta a página de login para se fazer o login de forma correta desta vez.
+Aqui o usuário pode se resgistrar no site caso não tenha uma conta. Se as senhas não baterem, o site não deixa criar a conta e assim que cria-se a conta, o visitante é redirecionado de volta a página de login para se fazer o login de forma correta.
 
 ###### Procurar um Review
 
 ![image](https://user-images.githubusercontent.com/73725151/142737882-94472387-21fa-4346-b036-d0feb040f970.png)
 
-Aqui o usuário pode ler os reviews de qualquer elemento apenas digitando seu nome, após isso uma query é executada e retona todas as reviews do elemento buscado.
+Aqui o usuário pode ler os reviews de qualquer elemento apenas digitando seu nome. Após isso, uma query é executada e retona todas as reviews do elemento buscado.
 
 ###### Escrever um Review
 
 ![image](https://user-images.githubusercontent.com/73725151/142737894-835c23ab-87e9-49a5-88ec-0cf7fd9334ae.png)
 
-Aqui o usuário pode escrever os reviews de qualquer elemento apenas digitando seu nome e a review do elemento, após isso uma query é executada e adiciona o review na base.
+Aqui o usuário pode escrever os reviews de qualquer elemento apenas digitando seu nome e a review do elemento. Após isso, uma query é executada e adiciona o review na base.
 
 ###### Página do Usuário
 
 ![image](https://user-images.githubusercontent.com/73725151/142737949-1ab61d6c-8bd1-4a4c-a465-26b81d664eb4.png)
 
-Aqui o usuário pode ver seus reviews de qualquer elemento apenas digitando seu nome e a review do elemento, além disso também pode apagar ou alterar alguma review apenas digitando o id que verá quando a tabela for exibida.
+Aqui o usuário pode ver seus reviews de qualquer elemento apenas digitando seu nome e a review do elemento. Além disso, também pode apagar ou alterar alguma review apenas digitando o id que virá quando a tabela for exibida.
 
 ###### Este é o projeto. Esperamos que gostem. Obrigado!!!
