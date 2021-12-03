@@ -130,11 +130,11 @@ embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
 
 Dentro do configureRouting() que está loclizado no package plugins foram definidas as rotas utilizadas para o projeto sendo elas:
 
--"/login" -> fazer login
--"/register" -> registrar no site
--"/userpage" -> página do usuário onde o usuário pode-se ler e editar seus próprios reviews
--"/lerreview" - ler alguma review específica baseada nos filtros
--"/escreverreview" -> escrever alguma review
+- "/login" -> fazer login
+- "/register" -> registrar no site
+- "/userpage" -> página do usuário onde o usuário pode-se ler e editar seus próprios reviews
+- "/lerreview" - ler alguma review específica baseada nos filtros
+- "/escreverreview" -> escrever alguma review
 
 Para a transmissão de menssagem via API, usou-se o JSON.
 
