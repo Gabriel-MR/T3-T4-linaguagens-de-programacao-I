@@ -56,7 +56,7 @@ interface GenericoDAO {
 - A função atualizar serve para atualizar linhas das tabelas
 - A função deletar serve para apagar linhas das tabelas
 
-OBS: Para cada tabela a implementação do método varia, portanto, para mais detalhes obre o que foi feitto e como foi implementado cada uma dessas funções em cada uma das tabelas basta acessar o package dao e olhar qualquer um dos arquivos
+OBS: Para cada tabela a implementação do método varia, portanto, para mais detalhes obre o que foi feito e como foi implementado cada uma dessas funções em cada uma das tabelas basta acessar o package dao e olhar qualquer um dos arquivos
 
 Uma vez que as conexões são no mesmo banco não havia necessidade de ficar repetido a conexão com o banco, para isso ciou-se o arquivo a seguir que padroniza para todos:
 ```
